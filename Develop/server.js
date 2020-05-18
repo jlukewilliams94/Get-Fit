@@ -14,9 +14,9 @@ app.use(express.json());
 app.use(express.static("public"));
 
 //Set up mongodb in heroku
-//mongoose.connect(process.env.MONGODB_URI || , {
-  //useNewUrlParser: true
-//});
+// mongoose.connect(process.env.MONGODB_URI || , {
+//   useNewUrlParser: true
+// });
 
 //Require our api and html routes
 require("./routes/html-routes.js")(app);

@@ -14,9 +14,8 @@ app.use(express.json());
 app.use(express.static("public"));
 
 //Set up mongodb in heroku
-// mongoose.connect(process.env.MONGODB_URI || , {
-//   useNewUrlParser: true
-// });
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+mongoose.connect(MONGODB_URI);
 
 //Require our api and html routes
 require("./routes/html-routes.js")(app);
@@ -24,5 +23,5 @@ require("./routes/api-routes.js")(app);
 
 app.listen(PORT, () => {
     console.log(`App running on port http://localhost:${PORT}`);
-  });
+});
 

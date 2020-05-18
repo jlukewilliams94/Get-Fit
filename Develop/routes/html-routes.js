@@ -9,7 +9,7 @@ module.exports = function (app) {
     //New Exercise Page Route
     app.get("/exercise", (req, res) => {
         res.sendFile(path.join(__dirname + "/public/exercise.html"))
-    })
+    });
 
     // Statistics Page Route
     app.get("/stats", (req, res) => {

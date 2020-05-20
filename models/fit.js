@@ -19,15 +19,15 @@ const workoutSchema = new Schema({
         trim: true
 
     },
-    Reps: {
+    reps: {
         type: Number,
         trim: true
     },
-    Distance: {
+    distance: {
         type: Number,
         trim: true
     },
-    Duration: {
+    duration: {
         type: Number,
         trim: true
     },
@@ -35,7 +35,6 @@ const workoutSchema = new Schema({
         type: Date,
         default: Date.now
     },
-
     exercises: []
 }, {
     toJSON: {

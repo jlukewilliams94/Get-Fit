@@ -9,13 +9,17 @@ const db = require("./models");
 
 
 const app = express();
+app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
 //Set up mongodb in heroku
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-mongoose.connect(MONGODB_URI);
+
+mongoose.connect(MONGODB_URI,{ useNewUrlParser: true, useUnifiedTopology: true })
+.then(()=> console.log('Database Connection Successful!!'))
+.catch(err => console.error(err));
 
 //Require our api and html routes
 require("./routes/html-routes.js")(app);
